@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{98EAE3AA-505A-4C42-9236-2E63033BA7C1}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Saturn.Electron.NET", "src\Saturn.ElectronNET\Saturn.Electron.NET.fsproj", "{56BF617D-3144-4E9C-992F-D4DF12EAE7F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "saturn-electron-net-example", "saturn-electron-net-example", "{5B89ED49-83FB-4B84-809A-BE587E51793C}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Client", "example\saturn-electron-net-example\src\Client\Client.fsproj", "{3F021B8C-C9FE-48B2-9407-BC02B438B9BC}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Server", "example\saturn-electron-net-example\src\Server\Server.fsproj", "{DD9856F1-7EE0-4149-A5C0-03603E9182F1}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Shared", "example\saturn-electron-net-example\src\Shared\Shared.fsproj", "{E9366855-B97A-4655-81FB-6C312A928A65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56BF617D-3144-4E9C-992F-D4DF12EAE7F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56BF617D-3144-4E9C-992F-D4DF12EAE7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56BF617D-3144-4E9C-992F-D4DF12EAE7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56BF617D-3144-4E9C-992F-D4DF12EAE7F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F021B8C-C9FE-48B2-9407-BC02B438B9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F021B8C-C9FE-48B2-9407-BC02B438B9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F021B8C-C9FE-48B2-9407-BC02B438B9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F021B8C-C9FE-48B2-9407-BC02B438B9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9856F1-7EE0-4149-A5C0-03603E9182F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9856F1-7EE0-4149-A5C0-03603E9182F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9856F1-7EE0-4149-A5C0-03603E9182F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9856F1-7EE0-4149-A5C0-03603E9182F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9366855-B97A-4655-81FB-6C312A928A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9366855-B97A-4655-81FB-6C312A928A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9366855-B97A-4655-81FB-6C312A928A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9366855-B97A-4655-81FB-6C312A928A65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B89ED49-83FB-4B84-809A-BE587E51793C} = {98EAE3AA-505A-4C42-9236-2E63033BA7C1}
+		{3F021B8C-C9FE-48B2-9407-BC02B438B9BC} = {5B89ED49-83FB-4B84-809A-BE587E51793C}
+		{DD9856F1-7EE0-4149-A5C0-03603E9182F1} = {5B89ED49-83FB-4B84-809A-BE587E51793C}
+		{E9366855-B97A-4655-81FB-6C312A928A65} = {5B89ED49-83FB-4B84-809A-BE587E51793C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1258E3C7-D80F-472A-BCD0-61964BAD9FD8}
+	EndGlobalSection
+EndGlobal

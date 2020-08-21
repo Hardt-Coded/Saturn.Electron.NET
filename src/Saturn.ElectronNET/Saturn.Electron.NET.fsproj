@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="generate-custom-operators.fsx" />
+    <Content Include="electron.manifest.json" />
+    <Compile Include="MenuItemBuilder.fs" />
+    <Compile Include="ElectronWindowOptionsBuilder.fs" />
+    <Compile Include="ElectronConfigBuilder.fs" />
+    <Compile Include="ApplicationBuilderExtension.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ElectronNET.API" Version="9.31.2" />
+    <PackageReference Include="Saturn" Version="0.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.2" />
+  </ItemGroup>
+
+</Project>

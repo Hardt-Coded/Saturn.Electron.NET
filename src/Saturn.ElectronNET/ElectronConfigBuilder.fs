@@ -8,11 +8,7 @@ module ElectronConfigBuilder =
     
     open Microsoft.Extensions.DependencyInjection
 
-    type ElectronConfig = {
-        Menu : (ServiceProvider -> MenuItem) list
-        ContextMenu : (ServiceProvider -> MenuItem) list
-        BrowserWindowOption: BrowserWindowOptions option
-    }
+    
 
 
     

@@ -19,7 +19,7 @@ module ApplicationBuilderExtension =
     type Saturn.Application.ApplicationBuilder with
     
         [<CustomOperation("use_electron")>]
-        member __.useElectron(state:ApplicationState, 
+        member __.UseElectron(state:ApplicationState, 
                 alternateUrl:string,
                 config: ElectronConfig) =
             // check if is run by the electron cli
@@ -57,9 +57,10 @@ module ApplicationBuilderExtension =
                                 | [] ->
                                     ()
                                 | menu ->
+                                    let sp = services.BuildServiceProvider()
                                     let menuItemsWithSerivceCollection =
                                         menu
-                                        |> List.map (fun f -> f <| services.BuildServiceProvider() )
+                                        |> List.map (fun f -> f sp )
                                         |> List.toArray
 
                                     Electron.Menu.SetApplicationMenu(menuItemsWithSerivceCollection)
@@ -68,16 +69,22 @@ module ApplicationBuilderExtension =
                                 | [] ->
                                     ()
                                 | contextmenu ->
+                                    let sp = services.BuildServiceProvider()
                                     let contextMenuItemsWithSerivceCollection =
                                         contextmenu
-                                        |> List.map (fun f -> f <| services.BuildServiceProvider() )
+                                        |> List.map (fun f -> f sp)
                                         |> List.toArray
 
                                     Electron.Menu.SetContextMenu(browserWindow,contextMenuItemsWithSerivceCollection)
-                                    Electron.Menu.ContextMenuPopup(browserWindow)
+                                    Electron.IpcMain.On("show-context-menu", fun args ->
+                                        Electron.Menu.ContextMenuPopup(browserWindow)
+                                    )
                                 browserWindow.Show()
                             )
-                            return services.AddSingleton<BrowserWindow>(browserWindow)
+                            return services
+                                .AddSingleton<BrowserWindow>(browserWindow)
+                                .AddSingleton<ElectronConfig>(config)
+                                
                         else
                             return services
                     }
@@ -85,7 +92,7 @@ module ApplicationBuilderExtension =
 
             let appBuildConfig (app:IApplicationBuilder) =
                 let browserWindow = app.ApplicationServices.GetService<BrowserWindow>()
-                if (browserWindow <> null) then
+                if (browserWindow |> isNull |> not) then
                 
                     Task.Run<unit>(fun _ -> 
                         task { 
@@ -97,10 +104,10 @@ module ApplicationBuilderExtension =
 
                 app
             
-
             {
                 state with
                     WebHostConfigs = webHostConfig::state.WebHostConfigs
                     ServicesConfig = serviceConfig::state.ServicesConfig
                     AppConfigs = appBuildConfig::state.AppConfigs
             }
+            

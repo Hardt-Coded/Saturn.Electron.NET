@@ -43,3 +43,18 @@ typeof<MenuItem>.GetProperties()
     
 )
 |> Array.iter (fun i -> printfn "%s" i)
+
+
+
+typeof<WebPreferences>.GetProperties()
+|> Array.map (fun pi ->
+    let propertyName = pi.Name
+    let opName = propertyName |> toLowerFirstLetter
+    sprintf """
+    [<CustomOperation("%s")>]
+    member __.Set%s(state:WebPreferences, value)=
+        state.%s <- value
+        state""" opName propertyName propertyName
+    
+)
+|> Array.iter (fun i -> printfn "%s" i)

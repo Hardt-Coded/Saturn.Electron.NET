@@ -8,7 +8,10 @@
   <ItemGroup>
     <None Include="generate-custom-operators.fsx" />
     <Content Include="electron.manifest.json" />
+    <Compile Include="Types.fs" />
+    <Compile Include="ContextEntensions.fs" />
     <Compile Include="MenuItemBuilder.fs" />
+    <Compile Include="WebPreferencesBuilder.fs" />
     <Compile Include="ElectronWindowOptionsBuilder.fs" />
     <Compile Include="ElectronConfigBuilder.fs" />
     <Compile Include="ApplicationBuilderExtension.fs" />
